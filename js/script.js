@@ -51,16 +51,17 @@ gioca.addEventListener('click', function(){
         square.append([index + 1]);
 
         square.addEventListener('click', function(){
-    
-
-            if (blacklist.includes(index + 1)){
-                this.classList.add('active-red');
-                // square.removeEventListener('click', function(){
-                // });
-            } else {
-                this.classList.add('active-blue');
-            }
             
+            if (blacklist.includes(index + 1)){
+
+                this.classList.add('active-red');
+                container.replaceWith(container.cloneNode(true));
+
+            } else {
+
+                this.classList.add('active-blue');
+
+            }      
         });
         
     }
