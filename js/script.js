@@ -6,6 +6,7 @@ let container = document.querySelector('.container');
 
 gioca.addEventListener('click', function(){
 
+
     let difficolta = document.getElementById('mode-selection').value;
     container.innerHTML = '';
     let row = 0;
@@ -50,20 +51,33 @@ gioca.addEventListener('click', function(){
         container.append(square);
         square.append([index + 1]);
 
-        square.addEventListener('click', function(){
-            
-            if (blacklist.includes(index + 1)){
+        let counterVal = 0;
+        let contatore = 0;
+        let risultato = document.getElementById("risultato");
+        incrementClick = function() {
+            updateDisplay(++counterVal);
+        };
+        function updateDisplay(val) {
+            risultato.innerHTML = `<p> Hai totalizzato ${val -1} click </p>`;
+        };
 
+        square.addEventListener('click', function(){
+            square.onclick = incrementClick();
+            if (blacklist.includes(index + 1)){
+                risultato.classList.add('block');
                 this.classList.add('active-red');
                 container.replaceWith(container.cloneNode(true));
-
+                
             } else {
-
+                
                 this.classList.add('active-blue');
-
-            }      
+                counterVal = counterVal + 1;      
+            }
+            console.log(counterVal);
         });
         
+        
+        console.log(counterVal);
     }
     
 });
