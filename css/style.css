@@ -50,13 +50,16 @@ main {
     height: calc(100vh - 150px);
     min-height: 25em;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .container {
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
     width: 25em;
     height: 25em;
+    min-height: 20em;
+    min-width: 20em;
 }
 .square {
     display: flex;
@@ -73,6 +76,9 @@ main {
 }
 main .risultato {
     display: none;
+    padding: 0.5em 0;
+    font-size: 2em;
+    font-weight: bold;
 }
 .risultato.block {
     display: block;

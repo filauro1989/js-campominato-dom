@@ -28,7 +28,6 @@ gioca.addEventListener('click', function(){
 
     }
 
-    // for (let index = 0; index < 16; index++) {
     i = 0;
     while (i < 16){
         randomNumber = parseInt(Math.floor(Math.random() * (row * col)) + 1);
@@ -52,8 +51,8 @@ gioca.addEventListener('click', function(){
         square.append([index + 1]);
 
         let counterVal = 0;
-        let contatore = 0;
         let risultato = document.getElementById("risultato");
+
         incrementClick = function() {
             updateDisplay(++counterVal);
         };
@@ -62,12 +61,21 @@ gioca.addEventListener('click', function(){
         };
 
         square.addEventListener('click', function(){
+
             square.onclick = incrementClick();
+
             if (blacklist.includes(index + 1)){
+
                 risultato.classList.add('block');
                 this.classList.add('active-red');
                 container.replaceWith(container.cloneNode(true));
                 
+            } else if (counterVal == (row * col) - 16){
+
+                container.replaceWith(container.cloneNode(true));
+                risultato.innerHTML += 'HAI VINTO'
+                risultato.classList.add('block');
+
             } else {
                 
                 this.classList.add('active-blue');
