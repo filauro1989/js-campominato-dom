@@ -60,15 +60,28 @@ gioca.addEventListener('click', function(){
             risultato.innerHTML = `<p> Hai totalizzato ${val -1} click </p>`;
         };
 
+        
         square.addEventListener('click', function(){
-
+            
+            let bombtotal = document.querySelectorAll('.active-red');
             square.onclick = incrementClick();
 
-            if (blacklist.includes(index + 1)){
+            let number = parseInt(square.innerText);
+
+            if (blacklist.includes(number)){
 
                 risultato.classList.add('block');
                 this.classList.add('active-red');
                 container.replaceWith(container.cloneNode(true));
+
+                // let squares = document.querySelectorAll('.square');
+                // for (let index = 0; index < squares.length; index++) {
+                //     let numDom = parseInt(squares[index].innerText);
+                //     if(blacklist.includes(numDom)) {
+                //         squares.classList.add('active-red');
+                //     }
+                    
+                // }
                 
             } else if (counterVal == (row * col) - 16){
 
